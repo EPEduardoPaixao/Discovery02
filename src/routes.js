@@ -1,12 +1,12 @@
 const express = require("express");
 const routes = express.Router();
 
+//O EJS LLER POR PADRÃO A PASSTA VIEWS
+const views = __dirname+'/views/'
 
-const basePath = __dirname+'/views'
+routes.get("/", (req, res) => res.render(views+"index"));
+routes.get("/job", (req, res) => res.render(views+"job"));
+routes.get("/job/edit", (req, res) => res.render(views+"job-edit"));
+routes.get("/profile", (req, res) => res.render(views+"profile"));
 
-routes.get("/", (request, response) => response.sendFile(basePath + "/index.html"));
-routes.get("/job", (request, response) => response.sendFile(basePath + "/job.html"));
-routes.get("/job/edit", (request, response) => response.sendFile(basePath + "/job-edit.html"));
-routes.get("/profile", (request, response) => response.sendFile(basePath + "/profile.html"));
-
-module.exports = routes;
+module.exports = routes; 
